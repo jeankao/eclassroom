@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load tag %}
+{% block content %}
+        <a href="add">加入班級</a><BR><BR>        
+        <table>
+        {% for enroll in enrolls %}
+        <tr>
+            <td>班級：{{enroll.classroom}}</td>
+            <td>座號：{{enroll.seat}}</td>
+            <td>基本資料：
+	<a href="/student/classroom/seat/{{enroll.id}}/{{enroll.classroom_id}}">座號</a>｜			
+			<a href="/student/group/{{enroll.classroom_id}}">組別</a>｜
+			<a href="/student/classmate/{{enroll.classroom_id}}">同學</a>｜
+			<a href="/student/work/{{enroll.classroom_id}}">作業</a>｜
+        {% endfor %}
+        </table>
+{% endblock %}

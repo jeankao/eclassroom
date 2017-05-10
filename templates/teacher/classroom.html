@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+        <a href="/teacher/classroom/add">新增班級</a> 
+        <table>
+            <tr>
+                <td>名稱</td>
+                <td>密碼</td>
+                <td>功能</td>
+        {% for classroom in classrooms %}
+            <tr>
+            <td>{{classroom.name}}</td>
+            <td>{{classroom.password}}</td>
+            <td>
+                <a href="/teacher/classroom/edit/{{classroom.id}}">修改</a>|			
+                <a href="/student/classmate/{{classroom.id}}">學生</a>|
+            </tr>
+        {% endfor %}
+        </table>
+{% endblock %}
